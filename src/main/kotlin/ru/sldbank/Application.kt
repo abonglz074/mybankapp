@@ -3,6 +3,7 @@ package ru.sldbank
 import io.ktor.server.application.*
 import org.litote.kmongo.coroutine.coroutine
 import org.litote.kmongo.reactivestreams.KMongo
+import ru.sldbank.data.MongoUserDataSource
 import ru.sldbank.plugins.*
 
 fun main(args: Array<String>): Unit =
@@ -16,6 +17,7 @@ fun Application.module() {
         connectionString = "mongodb+srv://abonglz073:$mongoPassword@cluster0.fnyy1du.mongodb.net/$dbName?retryWrites=true&w=majority"
     ).coroutine.getDatabase(dbName)
 
+    val userDataSource = MongoUserDataSource(db)
     configureSecurity()
     configureSerialization()
     configureMonitoring()
