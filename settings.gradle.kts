@@ -1,1 +1,1 @@
-rootProject.name = "ru.sldbank.sldbankbackend"
+rootProject.name = "ru.sldbank.sldbank-backend"
